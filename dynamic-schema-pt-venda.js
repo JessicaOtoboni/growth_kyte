@@ -1,3 +1,25 @@
+/* dynamic-schema-pt-venda.js */
+(function () {
+  try {
+    var data = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Venda no Kyte",
+      "description": "Exemplo de schema para página de venda",
+      "brand": { "@type": "Brand", "name": "Kyte" }
+    };
+    var s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.text = JSON.stringify(data);
+    document.head.appendChild(s);
+    // opcional: log para depurar
+    console.log("[schema] JSON-LD injetado");
+  } catch (e) {
+    console.error("[schema] falhou ao injetar JSON-LD:", e);
+  }
+})();
+
+
 // Get the slug from the URL path
 // Get the slug from the URL path
 let slug = window.location.pathname;
